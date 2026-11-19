@@ -1,0 +1,25 @@
+[project]
+name = "section3-langgraph-module"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "GarvitManralDev", email = "manralgarv@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "ipykernel>=7.4.0",
+    "langchain>=1.5.0",
+    "langchain-groq>=1.2.0",
+    "langchain-tavily>=0.2.18",
+    "langgraph>=1.2.22",
+    "langsmith>=0.15.0",
+    "python-dotenv>=1.2.4",
+]
+
+[project.scripts]
+section3-langgraph-module = "section3_langgraph_module:main"
+
+[build-system]
+requires = ["uv_build>=0.13.9,<0.14.0"]
+build-backend = "uv_build"
