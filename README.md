@@ -34,6 +34,7 @@ Each section is a small FastAPI app you can run on localhost. Each section folde
 | 7 | [Rate Limits, Retries, Timeouts, Circuit Breakers](./Module%204%20-%20Fast%20API/07_resilience/) | Protecting the API from heavy users and failing LLM providers |
 | 8 | [Idempotent LLM Requests](./Module%204%20-%20Fast%20API/08_idempotency/) | `Idempotency-Key` header so retries never run the LLM twice |
 | 9 | [Secrets & Environment Config](./Module%204%20-%20Fast%20API/09_secrets_config/) | `pydantic-settings`, `.env`, `SecretStr`, failing fast on bad config |
+| 10 | [**Capstone:** Production-Ready Streaming LLM API](./Module%204%20-%20Fast%20API/10_capstone_streaming_llm_api/) | Auth, rate limiting, validation, retry + timeout, idempotency, background logging and SSE in one app with a web UI |
 
 ## Tech Stack
 
@@ -79,7 +80,8 @@ Open the notebooks in VS Code or Jupyter and select the module's `.venv` as the 
 ```bash
 cd "Module 4 - Fast API"
 pip install -r requirements.txt
-cp 09_secrets_config/.env.example 09_secrets_config/.env   # only needed for section 9
+cp 09_secrets_config/.env.example 09_secrets_config/.env                         # section 9
+cp 10_capstone_streaming_llm_api/.env.example 10_capstone_streaming_llm_api/.env   # capstone
 
 python 01_intro_crud/crud.py   # any section file works the same way
 ```

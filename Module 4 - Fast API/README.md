@@ -17,6 +17,7 @@ Each section is a small, self-contained FastAPI app. You can run it on localhost
 | 7 | [Rate Limits, Retries, Timeouts, Circuit Breakers](./07_resilience/) | `rate_limiting.py`, `retry.py`, `timeout.py`, `circuit_breaker.py` | Survive bad users and failing providers |
 | 8 | [Idempotent LLM Requests](./08_idempotency/) | `idempotent.py` | Same key → LLM runs once |
 | 9 | [Secrets & Environment Config](./09_secrets_config/) | `config.py`, `app.py` | pydantic-settings, `.env`, `SecretStr` |
+| 10 | [**Capstone:** Streaming LLM API](./10_capstone_streaming_llm_api/) | `app.py`, `src/`, `templates/`, `static/` | Sections 1-9 combined into one project with a web UI |
 
 Every section folder has its own README with the concept, a diagram, and copy-paste curl commands.
 
@@ -30,10 +31,11 @@ conda activate fastapi-demo
 pip install -r requirements.txt
 ```
 
-Section 9 also needs a `.env`:
+Sections 9 and 10 also need a `.env`:
 
 ```bash
 cp 09_secrets_config/.env.example 09_secrets_config/.env
+cp 10_capstone_streaming_llm_api/.env.example 10_capstone_streaming_llm_api/.env
 ```
 
 ## Run any demo on localhost
@@ -44,13 +46,14 @@ All commands run from the `Module 4 - Fast API` folder:
 python 01_intro_crud/crud.py
 python 03_streaming_sse/agent_stream.py
 python 07_resilience/circuit_breaker.py
+python 10_capstone_streaming_llm_api/app.py
 # ...etc
 ```
 
 Every app serves on **<http://127.0.0.1:8080>** with auto-reload, so stop one (`Ctrl+C`) before starting the next.
 
 - <http://127.0.0.1:8080/docs> is the interactive Swagger UI for every app.
-- <http://127.0.0.1:8080/> is the browser UI for `agent_stream.py` (SSE) and `chat.py` (WebSocket).
+- <http://127.0.0.1:8080/> is the browser UI for `agent_stream.py` (SSE), `chat.py` (WebSocket) and the capstone.
 
 You can also run them with uvicorn directly, for example `uvicorn crud:app --reload --app-dir 01_intro_crud --port 8080`.
 
@@ -59,6 +62,7 @@ You can also run them with uvicorn directly, for example `uvicorn crud:app --rel
 ```text
 Module 4 - Fast API/
 ├── 01_intro_crud/ … 09_secrets_config/   # one folder per section: code + README
+├── 10_capstone_streaming_llm_api/        # capstone project combining every section
 ├── notes/                                # original lecture notes (docs.md, excalidraw)
 └── requirements.txt
 ```

@@ -11,3 +11,6 @@ report.txt
 
 # Course download (contains its own .env and .git)
 *.zip
+
+# Editor settings
+.vscode/
